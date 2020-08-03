@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Articulo extends Model
 {
     protected $fillable = [
-        'idcategoria','codigo','nombre','precio_venta',
-        'stock','descripcion','condicion'
+        'idcategoria','codigo','nombre'
+        ,'precio_venta','stock','descripcion','condicion'
     ];
 
     //referencia al modelo categoria(un articulo pertenece a una categoria)

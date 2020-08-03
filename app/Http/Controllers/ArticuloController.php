@@ -16,16 +16,14 @@ class ArticuloController extends Controller
         
         if ($buscar==''){
             $articulos = Articulo::join('categorias','articulos.idcategoria','=','categorias.id')
-            ->select('articulos.id','articulos.idcategoria','articulos.codigo','articulos.nombre',
-            'categorias.nombre as Nombre_Categoria','articulos.precio_venta','articulos.stock','articulos.descripcion','articulos.condicion')
-            ->orderBy('id', 'desc')->paginate(3);
+            ->select('articulos.id','articulos.idcategoria','articulos.codigo','articulos.nombre','categorias.nombre as nombre_categoria','articulos.precio_venta','articulos.stock','articulos.descripcion','articulos.condicion')
+            ->orderBy('articulos.id', 'desc')->paginate(3);
         }
         else{
             $articulos = Articulo::join('categorias','articulos.idcategoria','=','categorias.id')
-            ->select('articulos.id','articulos.idcategoria','articulos.codigo','articulos.nombre',
-            'categorias.nombre as Nombre_Categoria','articulos.precio_venta','articulos.stock','articulos.descripcion','articulos.condicion')
-            ->where('articulos.'.$criterio, 'like', '%'. $buscar . '%')->orderBy('id', 'desc')->paginate(3)
-            ->orderBy('id', 'desc')->paginate(3); 
+            ->select('articulos.id','articulos.idcategoria','articulos.codigo','articulos.nombre','categorias.nombre as nombre_categoria','articulos.precio_venta','articulos.stock','articulos.descripcion','articulos.condicion')
+            ->where('articulos.'.$criterio, 'like', '%'. $buscar . '%')
+            ->orderBy('articulos.id', 'desc')->paginate(3);
         }
         
 
@@ -38,7 +36,7 @@ class ArticuloController extends Controller
                 'from'         => $articulos->firstItem(),
                 'to'           => $articulos->lastItem(),
             ],
-            'articulos$articulos' => $articulos
+            'articulos' => $articulos
         ];
  
     }   
