@@ -2,7 +2,7 @@
             <main class="main">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="#">Escritorio</a></li>
+                <li class="breadcrumb-item"><a href="/">Escritorio</a></li>
             </ol>
             <div class="container-fluid">
                 <!-- Ejemplo de tabla Listado -->
@@ -19,9 +19,9 @@
                                 <div class="input-group">
                                     <select class="form-control col-md-3" v-model="criterio">
                                       <option value="nombre">Nombre</option>
-                                      <option value="num_documento">Docuemnto</option>
+                                      <option value="num_documento">Documento</option>
                                       <option value="email">Email</option>
-                                      <option value="telefono">Telèfono</option>
+                                      <option value="telefono">Teléfono</option>
                                     </select>
                                     <input type="text" v-model="buscar" @keyup.enter="listarPersona(1,buscar,criterio)" class="form-control" placeholder="Texto a buscar">
                                     <button type="submit" @click="listarPersona(1,buscar,criterio)" class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
@@ -34,14 +34,14 @@
                                     <th>Opciones</th>
                                     <th>Nombre</th>
                                     <th>Tipo Documento</th>
-                                    <th>Nùmero</th>
-                                    <th>Direcciòn</th>
-                                    <th>Telèfono</th>
+                                    <th>Número</th>
+                                    <th>Dirección</th>
+                                    <th>Teléfono</th>
                                     <th>Email</th>
                                     <th>Contacto</th>
                                 </tr>
                             </thead>
-                             <tbody>
+                            <tbody>
                                 <tr v-for="persona in arrayPersona" :key="persona.id">
                                     <td>
                                         <button type="button" @click="abrirModal('persona','actualizar',persona)" class="btn btn-warning btn-sm">
@@ -88,57 +88,58 @@
                         <div class="modal-body">
                             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nombre</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Nombre (*)</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la persona"> 
+                                        <input type="text" v-model="nombre" class="form-control" placeholder="Nombre de la persona">                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="email-input">Tipo  Documento</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Tipo Documento</label>
                                     <div class="col-md-9">
                                         <select v-model="tipo_documento" class="form-control">
                                             <option value="DNI">DNI</option>
                                             <option value="RUC">RUC</option>
                                             <option value="PASS">PASS</option>
-                                        </select>
+                                        </select>                                    
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Nùmbre</label>
+                                    <label class="col-md-3 form-control-label" for="text-input">Número</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="num_documento" class="form-control" placeholder="Nº de Documento"> 
+                                        <input type="text" v-model="num_documento" class="form-control" placeholder="Número de documento">                                        
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Direcciòn</label>
+                                    <label class="col-md-3 form-control-label" for="email-input">Dirección</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="direccion" class="form-control" placeholder="Direcciòn"> 
+                                        <input type="text" v-model="direccion" class="form-control" placeholder="Dirección">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Telèfono</label>
+                                    <label class="col-md-3 form-control-label" for="email-input">Teléfono</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="telefono" class="form-control" placeholder="Telèfono"> 
+                                        <input type="text" v-model="telefono" class="form-control" placeholder="Teléfono">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Email</label>
+                                    <label class="col-md-3 form-control-label" for="email-input">Email</label>
                                     <div class="col-md-9">
-                                        <input type="email" v-model="email" class="form-control" placeholder="Correo Electronico"> 
+                                        <input type="email" v-model="email" class="form-control" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Contacto</label>
+                                    <label class="col-md-3 form-control-label" for="email-input">Contacto</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="contacto" class="form-control" placeholder="Nombre del Contacto"> 
+                                        <input type="text" v-model="contacto" class="form-control" placeholder="Nombre del contacto">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-3 form-control-label" for="text-input">Telèfono del contacto</label>
+                                    <label class="col-md-3 form-control-label" for="email-input">Teléfono de contacto</label>
                                     <div class="col-md-9">
-                                        <input type="text" v-model="telefono_contacto" class="form-control" placeholder="telefono del Contacto"> 
+                                        <input type="text" v-model="telefono_contacto" class="form-control" placeholder="Teléfono del contacto">
                                     </div>
                                 </div>
+
                                 <div v-show="errorPersona" class="form-group row div-error">
                                     <div class="text-center text-error">
                                         <div v-for="error in errorMostrarMsjPersona" :key="error" v-text="error">
@@ -171,9 +172,9 @@
                 nombre : '',
                 tipo_documento : 'DNI',
                 num_documento : '',
+                direccion : '',
                 telefono : '',
                 email : '',
-                direccion : '',
                 contacto : '',
                 telefono_contacto : '',
                 arrayPersona : [],
@@ -258,8 +259,9 @@
                     'direccion' : this.direccion,
                     'telefono' : this.telefono,
                     'email' : this.email,
-                    'contacto' : this.contacto,
-                    'telefono_contacto' : this.telefono_contacto
+                    'contacto': this.contacto,
+                    'telefono_contacto': this.telefono_contacto
+
                 }).then(function (response) {
                     me.cerrarModal();
                     me.listarPersona(1,'','nombre');
@@ -281,16 +283,16 @@
                     'direccion' : this.direccion,
                     'telefono' : this.telefono,
                     'email' : this.email,
-                    'contacto' : this.contacto,
-                    'telefono_contacto' : this.telefono_contacto,
-                    'id' : this.persona_id
+                    'contacto': this.contacto,
+                    'telefono_contacto': this.telefono_contacto,
+                    'id': this.persona_id
                 }).then(function (response) {
                     me.cerrarModal();
                     me.listarPersona(1,'','nombre');
                 }).catch(function (error) {
                     console.log(error);
-                });
-            },
+                }); 
+            },            
             validarPersona(){
                 this.errorPersona=0;
                 this.errorMostrarMsjPersona =[];
@@ -305,14 +307,15 @@
                 this.modal=0;
                 this.tituloModal='';
                 this.nombre='';
-                this.tipo_documento = 'RUC';
-                this.num_documento = '';
-                this.direccion = '';
+                this.tipo_documento='RUC';
+                this.num_documento='';
+                this.direccion='';
                 this.telefono='';
-                this.email = '';
-                this.contacto = '';
-                this.telefono_contacto = '';
+                this.email='';
+                this.contacto='';
+                this.telefono_contacto='';
                 this.errorPersona=0;
+
             },
             abrirModal(modelo, accion, data = []){
                 switch(modelo){
@@ -323,15 +326,14 @@
                             {
                                 this.modal = 1;
                                 this.tituloModal = 'Registrar Proveedor';
-                                this.nombre='';
-                                this.tipo_documento = 'RUC';
-                                this.num_documento = '';
-                                this.direccion = '';
+                                this.nombre= '';
+                                this.tipo_documento='RUC';
+                                this.num_documento='';
+                                this.direccion='';
                                 this.telefono='';
-                                this.email = '';
-                                this.contacto = '';
-                                this.telefono_contacto = '';
-                                this.errorPersona=0;
+                                this.email='';
+                                this.contacto='';
+                                this.telefono_contacto='';
                                 this.tipoAccion = 1;
                                 break;
                             }
@@ -341,16 +343,15 @@
                                 this.modal=1;
                                 this.tituloModal='Actualizar Proveedor';
                                 this.tipoAccion=2;
-                                this.persona_id = data['id'],
-                                this.nombre= data['nombre'];
+                                this.persona_id=data['id'];
+                                this.nombre = data['nombre'];
                                 this.tipo_documento = data['tipo_documento'];
                                 this.num_documento = data['num_documento'];
                                 this.direccion = data['direccion'];
-                                this.telefono= data['telefono'];
+                                this.telefono = data['telefono'];
                                 this.email = data['email'];
                                 this.contacto = data['contacto'];
-                                this.telefono_contacto = data ['telefono_contacto'];
-                                this.errorPersona=0;
+                                this.telefono_contacto = data['telefono_contacto'];
                                 break;
                             }
                         }
